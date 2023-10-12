@@ -1,5 +1,10 @@
 package com.lylng.datastructures;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
+
 /**
  * ClassName:SparseArray
  * Package:com.lylng.datastructures
@@ -80,5 +85,22 @@ public class SparseArray {
             }
             System.out.println();
         }
+
+        // 将系数数组保存到磁盘中
+
+        File file = new File("/file/map.data");
+        RandomAccessFile in = null;
+        try{
+            in = new RandomAccessFile("map.data","rw");
+            for (int i = 0; i < sparseArr.length; i++) {
+                for (int j = 0; j < sparseArr[i].length; j++) {
+                 in.write(sparseArr[i][j]);
+                }
+            }
+        }catch(IOException e){
+            System.out.println(e.toString());
+        }
+        // 通过map.data恢复原来的二维数组
+        
     }
 }
