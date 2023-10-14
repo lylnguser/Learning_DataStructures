@@ -34,5 +34,12 @@ public class SingleLinkedListDemo {
 
         System.out.println("修改数据后~~~");
         singleLinkedList.list();
+
+        System.out.println("删除数据前~~~");
+        singleLinkedList.list();
+
+        System.out.println("删除数据后~~~");
+        singleLinkedList.deleteNode(hero2);
+        singleLinkedList.list();
     }
 }

@@ -96,6 +96,30 @@ public class SingleLinkedList {
         }
     }
 
+    // 删除结点数据
+    public void deleteNode(HeroNode deleteNode){
+        // 定义辅助结点
+        HeroNode temp = head;
+        boolean flag = false;
+
+        while(true){
+            if(temp.next == null){
+                break;
+            }
+            if(temp.next.heroNo == deleteNode.heroNo){
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+        // 循环结束，得到flag的值
+        if(flag){
+            temp.next = temp.next.next;
+        }else{
+            System.out.println("待删除的英雄编号%d为在数据中，无法执行删除操作");
+        }
+    }
+
     // 显示链表
     // 遍历链表
     public void list(){

@@ -142,3 +142,39 @@ public void updateNode(int number,String name,String nickName){
     }
 }
 ```
+
+> 单链表删除结点
+
+思路：  
+首先找到待删除结点的前一个结点，然后将指针进行重新指向，即可删除结点
+
+```java
+public void deleteNode(HeroNode deleteNode){
+    // 头结点不能动，故，需要一个辅助变量
+
+    HeroNode temp = head;
+    boolean flag = false;
+    while(true){
+        // 到末结点
+        if(temp.next == null){
+            break;
+        }
+        if(temp.next.no == deleteNode.no){
+            flag = true;
+            break;
+        }
+        // temp后移
+
+        temp = temp.next;
+    }
+    // 循环结束，确定要删除的位置
+    if(flag){
+        temp.next = temp.next.next; // 直接将指针指向后一个结点
+    }else{
+        System.out.printf("待删除的英雄编号%d未在数据中，无法执行删除操作");
+    }
+}
+
+    // 被删除的结点，不会由其他引用指向，会被jvm垃圾回收机制进行回收
+    // 即，不考虑删除的结点
+```
