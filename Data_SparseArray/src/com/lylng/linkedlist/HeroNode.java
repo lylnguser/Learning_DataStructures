@@ -16,6 +16,7 @@ public class HeroNode {
      public String nickName;
 
      public HeroNode next;
+     public HeroNode(){}
 
     public HeroNode(int number,String name,String nickName){
         this.heroNo = number;
