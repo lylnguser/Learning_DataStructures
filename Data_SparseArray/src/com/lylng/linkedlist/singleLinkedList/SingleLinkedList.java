@@ -1,6 +1,4 @@
-package com.lylng.linkedlist;
-
-import com.sun.security.jgss.GSSUtil;
+package com.lylng.linkedlist.singleLinkedList;
 
 import java.util.Stack;
 

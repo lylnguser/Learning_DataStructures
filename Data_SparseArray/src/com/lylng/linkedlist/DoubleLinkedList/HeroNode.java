@@ -1,26 +1,23 @@
-package com.lylng.linkedlist;
+package com.lylng.linkedlist.DoubleLinkedList;
 
 /**
  * ClassName:HeroNode
- * Package:com.lylng.linkedlist
+ * Package:com.lylng.linkedlist.DoubleLinkedList
  * Description:
  * Author:lylng
- * Create:2023/10/13 - 22:46
+ * Create:2023/10/16 - 20:51
  * Version:v1.0
  */
-
-// 保存英雄信息
 public class HeroNode {
-     public int heroNo;
-     public String heroName;
-     public String nickName;
+    int heroNo;
+    String heroName;
+    String nickName;
+    public HeroNode next;
+    public HeroNode prior;
 
-     public HeroNode next;
-     public HeroNode(){}
-
-    public HeroNode(int number,String name,String nickName){
-        this.heroNo = number;
-        this.heroName = name;
+    public HeroNode(int no, String heroName, String nickName) {
+        this.heroNo = no;
+        this.heroName = heroName;
         this.nickName = nickName;
     }
 

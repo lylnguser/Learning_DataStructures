@@ -1,4 +1,4 @@
-package com.lylng.linkedlist;
+package com.lylng.linkedlist.singleLinkedList;
 
 /**
  * ClassName:SingleLinkedListDemo
