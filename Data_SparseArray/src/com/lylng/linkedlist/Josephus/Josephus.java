@@ -14,7 +14,9 @@ public class Josephus {
     public static void main(String[] args) {
         SingleCircleLinkedList singleCircleLinkedList = new SingleCircleLinkedList();
 
-        singleCircleLinkedList.addListNode(30);
+        singleCircleLinkedList.addListNode(3);
         singleCircleLinkedList.list();
+
+        singleCircleLinkedList.outListNode(1,2,3);
     }
 }

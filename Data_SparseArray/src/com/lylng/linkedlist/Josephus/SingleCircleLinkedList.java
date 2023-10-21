@@ -33,16 +33,55 @@ public class SingleCircleLinkedList {
         }
     }
 
-    // 出链表问题
-    public void outOfListNode(int data){
-        if(first == null){
-            System.out.println("空链表~~~");
-            return ;
-        }
-        // 定义辅助结点
-        ListNode out = first.getNext();
-        while()
+    // 根据用户的输入，对链表进行结点的输出
 
+    /**
+     *
+     * @param startNo   开始进行报数的位置
+     * @param countNum  表示要出圈的数结点
+     * @param nums      表示一共有多少个结点
+     */
+    public void outListNode(int startNo,int countNum,int nums) {
+        if (first == null || startNo < 1 || startNo > nums) {
+            System.out.println("输入数据有误，请重新输入~~~");
+            return;
+        }
+        // 定义辅助结点,进行遍历结点，然后将结点给抛出
+        ListNode last = first;
+        // 将last指针指向链表=最后一个结点
+        while (true) {
+            if (last.getNext() == first) {
+                break;
+            }
+            last = last.getNext();
+        }
+        // 先让链表的first结点移动到要报数的结点上
+        for (int i = 1; i < startNo; i++) {
+            first = first.getNext();
+            last = last.getNext();
+        }
+
+        // 小孩开始出圈时，指针同时的移动m-1，然后出圈
+        // 当只有一个结点时，循环结束
+        while (true) {
+            // 结束条件
+            if (last == first) {
+                break;
+            }
+            // 开始报数
+            // 当位置到要出圈的位置时
+            // 思路：1.first的位置到达待删除位置的前一个位置，然后停止
+            for (int i = 1; i < countNum; i++) {
+                first = first.getNext();
+                last = last.getNext();
+            }
+            // 这时，结点first结点就是要出圈的结点
+            System.out.printf("孩子%d出圈\n", first.getValue());
+            // 执行结点删除操作
+            first = first.getNext();
+            last.setNext(first);
+        }
+        System.out.printf("最后留在圈中的小孩是%d",first.getValue());
     }
 
     // 遍历链表
