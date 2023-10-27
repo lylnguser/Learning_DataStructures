@@ -51,6 +51,7 @@ public class LinkedListToQueueDemo {
                     break;
                 case "exit":
                     flag = false;
+                    reader.close();
                     break;
                 default:
                     break;

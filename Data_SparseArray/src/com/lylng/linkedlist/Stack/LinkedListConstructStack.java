@@ -1,5 +1,7 @@
 package com.lylng.linkedlist.Stack;
 
+import java.util.Stack;
+
 /**
  * ClassName:LinkedListConstuctStack 链表实现栈
  * Package:com.lylng.linkedlist.Stack
@@ -55,6 +57,55 @@ public class LinkedListConstructStack {
             System.out.println(temp.getValue());
             temp = temp.getNext();
         }
+    }
+
+    // 得到栈顶的值，而不需要实施出栈操作
+    public int peek(){
+        if(isEmpty()){
+            System.out.println("栈空，无法执行peek操作~~~");
+        }
+        ListNode Peek = head.getNext();
+        return Peek.getValue();
+    }
+
+    // 定义符号的优先级
+    // 目前的表达式只有"+-*/"
+    public int priority(int oper){
+        if(oper == '*' || oper == '/'){
+            return 1;
+        }else if(oper == '+' || oper == '-'){
+            return 0;
+        }else{
+            return -1;
+        }
+    }
+
+    // 判断是不是一个运算符
+    public boolean isOper(char val){
+        return val == '+' || val == '-' || val == '*' || val == '/';
+    }
+
+    // 计算方法
+    public int cal(int num1, int num2, int oper) {
+        // 用于存放计算的结果
+        int res = 0;
+        switch(oper){
+            case '+':
+                res = num2 + num1;
+                break;
+            case '-':
+                res = num2 - num1;
+                break;
+            case '*':
+                res = num2 * num1;
+                break;
+            case '/':
+                res = num2 / num1;
+                break;
+            default:
+                break;
+        }
+        return res;
     }
 }
 
